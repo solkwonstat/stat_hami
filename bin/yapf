@@ -1,0 +1,46 @@
+#!/bin/bash
+
+print_usage() {
+  echo "Usage: yapf path [path ...]"
+  echo ""
+  echo "This script runs Yapf (Google's Python code formatter) for the given paths."
+  echo "WARNING: This script may modify files. Do 'git add' or 'git commit' before running it."
+}
+
+run_yapf() {
+  if [[ "$#" == 0 ]]; then
+    print_usage
+    exit 0
+  fi
+
+  local -r is_in_git_tree="$(git rev-parse --is-inside-work-tree)"
+  if [[ "${is_in_git_tree}" != true ]]; then
+    print_usage
+    echo ""
+    echo "Error: Not in a Git work tree."
+    exit 1
+  fi
+
+  local -r unstaged_files="$(git diff --name-only)"
+  if [[ ! -z "${unstaged_files}" ]]; then
+    print_usage
+    echo ""
+    echo "Error: There are unstaged files. Do 'git status' to see them."
+    exit 1
+  fi
+
+  local -r untracked_files="$(git ls-files --others --exclude-standard)"
+  if [[ ! -z "${untracked_files}" ]]; then
+    print_usage
+    echo ""
+    echo "Error: There are untracked files. Do 'git status' to see them."
+    exit 1
+  fi
+
+  local -r top_dir="$(git rev-parse --show-toplevel)"
+  local -r yapf_path="third_party/yapf-0.30.0"
+  PYTHONPATH="${top_dir}/${yapf_path}" python3 \
+      "${top_dir}/${yapf_path}/yapf" -i -r "${@}"
+}
+
+run_yapf "${@}"
