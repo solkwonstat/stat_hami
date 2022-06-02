@@ -1,5 +1,6 @@
 """Chapter 1. Algorithm Basics"""
 
+
 def max3(a, b, c):
     """returns maximum value among a, b, c"""
     maximum = a
@@ -8,6 +9,7 @@ def max3(a, b, c):
     if c > maximum:
         maximum = c
     return maximum
+
 
 def med3(a, b, c):
     """returns median value among a, b, c"""
@@ -23,7 +25,7 @@ def med3(a, b, c):
     elif b > c:
         return c
     else:
-        return b        
+        return b
 
 
 if __name__ == "__main__":
@@ -37,4 +39,3 @@ if __name__ == "__main__":
 
     print(f"med3(3, 2, 1) = {med3(3, 2, 1)}")
     print(f"med3(3, 2, 2) = {med3(3, 2, 2)}")
-
