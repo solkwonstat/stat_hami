@@ -3,9 +3,9 @@ payment:
     url: https://apis.data.go.kr/B190001/localGiftsPayment/payments
     page: 1
     perPage: 100
-    output_file: ./test1.csv
+    output_file: C:\Users\user\Documents\test1.csv
 local_gift:
     url: https://apis.data.go.kr/1741000/LocalLoveGiftCertificate/getLocalLoveGiftCertificate
     pageNo: 1
     numOfRows: 10
-    output_file: ./test2.csv
+    output_file: C:\Users\user\Documents\test2.csv
