@@ -6,7 +6,7 @@ import yaml
 
 import pandas as pd
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 
 
 class PublicDataGetterConfig:
