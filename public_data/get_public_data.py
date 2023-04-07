@@ -6,11 +6,8 @@ import yaml
 
 import pandas as pd
 
-PAYMENT_URL = "https://apis.data.go.kr/B190001/localGiftsPayment/payments"
-LOCAL_GIFT_URL = "https://apis.data.go.kr/1741000/LocalLoveGiftCertificate/getLocalLoveGiftCertificate"
-SERVICE_KEY = "lyuHrnPv0YTrdFn6zrskX5Q13fyxQbA5g71rUYuzHWKAGK5v9LlwonRrKikYRV1a5tCbya9hH5tXaqiTsn5JcA=="
-
 logger = logging.getLogger()
+
 
 class PublicDataGetterConfig:
 
