@@ -1,0 +1,11 @@
+serviceKey: lyuHrnPv0YTrdFn6zrskX5Q13fyxQbA5g71rUYuzHWKAGK5v9LlwonRrKikYRV1a5tCbya9hH5tXaqiTsn5JcA==
+payment:
+    url: https://apis.data.go.kr/B190001/localGiftsPayment/payments
+    page: 1
+    perPage: 100
+    output_file: ./test1.csv
+local_gift:
+    url: https://apis.data.go.kr/1741000/LocalLoveGiftCertificate/getLocalLoveGiftCertificate
+    pageNo: 1
+    numOfRows: 10
+    output_file: ./test2.csv
